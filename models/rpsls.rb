@@ -6,7 +6,7 @@ class RPSLS
     options = ["rock", "paper", "scissors", "lizard", "spock"]
     computer_choice = options[rand(0..4)]
     unless options.include? player_choice
-      return "ERROR! ERROR!" 
+      return ["ERROR!", "ERROR!", "ERROR!"]
     end
 
     outcomes = {
@@ -86,16 +86,7 @@ class RPSLS
       end
     end
 
-    return result
+    return ["You chose #{player_choice.capitalize}...", "The computer chose #{computer_choice.capitalize}...", result]
   end
 
 end
-
-10.times do
-  puts RPSLS.game("rock")
-  puts RPSLS.game("paper")
-  puts RPSLS.game("scissors")
-  puts RPSLS.game("lizard")
-  puts RPSLS.game("spock")
-end
-nil
