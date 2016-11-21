@@ -1,4 +1,5 @@
 require("sinatra")
+require("json")
 require("pry-byebug")
 require_relative("models/rpsls")
 
@@ -13,3 +14,8 @@ get '/:choice' do
   erb(:result)
 end
 
+get '/game/log' do
+  log = RPSLS.publish_log()
+  @log = log.to_json
+  erb(:log)
+end
